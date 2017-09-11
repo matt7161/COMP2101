@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 # My second script
 
 cat <<EOF
