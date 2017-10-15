@@ -6,7 +6,7 @@ runindefaultmode="yes"
 
 # Define functions for error messages and displaying command line help.
 function displayusage {
-  echo "Usage:$0 [-h | --help] [-n | --name] [-o | --os] [-i | --ip] [-v | --version] [-c | --cpu] [-r | --ram | -m | --memory] [-d | --disk] [-p | --printer] [-s | --software]"
+  echo "Usage:$0 [-h | --help] [-n | --name] [-o | --os] [-i | --ip] [-v | --version] [-c | --cpu] [-r | --ram | -m | --memory] [-d | --disk] [-p | --printer] [-s | --software] [-h | --help]"
 }
 function errormessage {
   echo "$@" >&2
@@ -16,7 +16,22 @@ function errormessage {
 while [ $# -gt 0 ]; do
   case "$1" in
     -h|--help)
-      displayusage
+      echo "Usage: sysinfo.sh [OPTION]..."
+      echo "Displays information about current system"
+      echo "More than one option can be used at once, for example 'bash sysinfo.sh -o -d -v'"  
+      echo ""
+      echo "Available arguments:"
+      echo "-h, --help          help"
+      echo "-n, --name          Displays hostname and Doamin name if available."
+      echo "-o, --os            Displays The version of Linux."
+      echo "-i, --ip            Displays the IP address and Default Gateway of this machine."
+      echo "-v, --version       Displays more information about the version of Linux, including kernel version."
+      echo "-c, --cpu           Displays information about processor."
+      echo "-r, --ram,          Displays amount of RAM/Memory."
+      echo "-m, --memory        Displays amount of RAM/Memory."
+      echo "-d, --disk          Displays available disk space."
+      echo "-p, --printer       lists connected printers."
+      echo "-s, --software      list software installed on machine."
       exit 0
       ;;
     -n|--name)
@@ -56,8 +71,8 @@ while [ $# -gt 0 ]; do
       runindefaultmode="no"
       ;;
     *)
-      errormessage "I don't know what '$1' is. Sorry."
-      errormessage "$(displayusage)"
+      errormessage "'$1' Isn't a valid argument. Try:"
+      errormessage "Try -h or --help to see a list of possible arguments."
       exit 1
       ;;
   esac
