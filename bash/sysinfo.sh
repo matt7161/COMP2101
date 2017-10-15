@@ -15,10 +15,11 @@ function errormessage {
 # Process the command line options, saving the results in variables for later use.
 while [ $# -gt 0 ]; do
   case "$1" in
+    #Provides thorough help information to make it understandable to all users.
     -h|--help)
       echo "Usage: sysinfo.sh [OPTION]..."
       echo "Displays information about current system"
-      echo "More than one option can be used at once, for example 'bash sysinfo.sh -o -d -v'"  
+      echo "More than one option can be used at once, for example 'bash sysinfo.sh -o -d -v'"
       echo ""
       echo "Available arguments:"
       echo "-h, --help          help"
