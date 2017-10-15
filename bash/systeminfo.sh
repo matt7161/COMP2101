@@ -5,7 +5,7 @@
 runindefaultmode="yes"
 
 # Define functions for error messages and displaying command line help.
-function displayusage {
+function usage {
   echo "Usage:$0 [-h | --help] [-n | --name] [-o | --os] [-i | --ip] [-v | --version] [-c | --cpu] [-r | --ram | -m | --memory] [-d | --disk] [-p | --printer] [-s | --software] [-h | --help]"
 }
 function errormessage {
